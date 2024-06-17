@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+.active{
+  color: yellow;
+}
+.custom-gradient {
+  background: linear-gradient(118.19deg, #1FA2FF -3.62%, #12D8FA 50.44%, #A6FFCB 104.51%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  
+}
+.circular-gradient-bg {
+  background: radial-gradient(circle, #1FA2FF, #12D8FA, #A6FFCB);
+}
+.codeblock2 {
+  background: linear-gradient(118.19deg, #1fa2ff -3.62%, #12d8fa 50.44%, #a6ffcb 104.51%);
+  border-radius: 100%;
+  filter: blur(34px);
+  height: 257.05px;
+  left: calc(50% - 263.005px);
+  opacity: .2;
+  top: calc(50% - 175.995px);
+  transform: matrix(1, 0, -.03, 1, 0, 0);
+  width: 372.95px;
+}
+.codeblock1 {
+background: linear-gradient(123.77deg, #8a2be2 -6.46%, orange 59.04%, #f8f8ff 124.53%);
+border-radius: 100%;
+filter: blur(34px);
+height: 257.05px;
+left: calc(50% - 263.005px);
+opacity: .2;
+top: calc(50% - 175.995px);
+transform: matrix(1, 0, -.03, 1, 0, 0);
+width: 372.95px;
+}
