@@ -10,7 +10,7 @@ const CodeBlock = ({position , heading,subHeading , ctaBtn1 , ctaBtn2,codeblock,
     <div className={` mt-20 px-5 flex flex-col ${position} gap-10 lg:gap-0 justify-evenly items-center w-full   `}>
         <div className="w-[80%] lg:w-[40%] flex flex-col gap-6 text-richblack-300">
             <p className=''>{heading}</p>
-            <p className='w-[80%] lg:w-[90%]'>{subHeading}</p>
+            <p className='w-[80%] lg:w-[90%] font-semibold '>{subHeading}</p>
             <div className='flex gap-5'>
             <CTAButton isActive={ctaBtn1.isActive} path={ctaBtn1.path}><div className='flex items-center gap-1'>{ctaBtn1.title} <IoIosArrowRoundForward className='text-xl'/></div> </CTAButton>
             <CTAButton isActive={ctaBtn2.isActive} path={ctaBtn2.path}>{ctaBtn2.title}</CTAButton>

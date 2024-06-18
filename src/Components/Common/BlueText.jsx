@@ -3,7 +3,7 @@ import "../../index.css"
 const BlueText = ({text}) => {
   return (
     <div className='custom-gradient'>
-      {" "}{ text}
+      {" "} { text}
     </div>
   )
 }

@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useEffect, useState} from "react";
 import { NavLink } from "react-router-dom";
 import BlueText from "../Components/Common/BlueText";
 import { IoIosArrowRoundForward } from "react-icons/io";
@@ -6,7 +6,18 @@ import CTAButton from "../Components/Home/CTAButton";
 import BannerVideo from "../assets/banner copy.mp4";
 import CodeBlock from "../Components/Home/CodeBlock";
 import "../index.css"
+import TappingBar from "../Components/Home/TappingBar";
+import TappingCard from "../Components/Home/TappingCard";
+import {HomePageExplore} from "../Data/homepage-explore"
+import TimeLineQuality from "../Components/Home/TimeLineQuality";
+import TimeLineImage from "../assets/Images/TimelineImage.png"
+
+
 const HomePage = () => {
+  const [selected , setSelected]=useState(HomePageExplore[0])
+  useEffect(()=>{
+    console.log("homePage ,selected ",selected)
+  },[])
   return (
     <>
       <div className="bg-richblack-900">
@@ -78,7 +89,7 @@ const HomePage = () => {
           ></CodeBlock>
 
                               {/* {CodeBLOCK TYPEwriter 2} */}
-                              <CodeBlock
+          <CodeBlock
           position={"lg:flex-row-reverse"}
             heading={
               <div className="text-4xl text-richblack-25 font-bold">
@@ -106,6 +117,53 @@ const HomePage = () => {
             codeblock={`<!DOCTYPE html>\n <html lang="en">\n<head>\n<title>This is myPage</title>\n</head>\n<body>\n<h1><a href="/">Header</a></h1>\n<nav> <a href="/one">One</a> <a href="/two">Two</a> <a href="/three">Three</a>\n</nav>\n</body>`}
           ></CodeBlock>
         </div>
+                      {/* {Tapping Bar Card section} */}
+        <div className="flex justify-center items-center">
+            <TappingBar selected={selected} setSelected={setSelected}/>
+        </div>
+                {/* white background start */}
+                {/* {TappingCard} */}
+                <div className="bg-pure-greys-5">
+                  <div className='flex flex-col mt-[-6rem] sm:mt-5  justify-center items-center bgHome' >
+                    <TappingCard selected={selected} />
+                    <div className="flex gap-5 mt-10 mb-20">
+                      <CTAButton isActive={true} path={"/signup"}>{"Explore Full Catalog"}<IoIosArrowRoundForward className="text-xl font-extrabold"/></CTAButton>
+                      <CTAButton isActive={false} path={"/login"}>{"Learn More"}</CTAButton>
+                    </div>
+                  </div>
+                  <div className="h-[8rem] w-[100%] bg-richblack-900 "></div>
+                                {/* QUALITY SECTION */}
+                  <div className="flex justify-center items-center">
+                    <div className="w-10/12"> 
+                        <div className="flex flex-col md:flex-row justify-between gap-8 my-16 ">
+                          <p className="text-richblack-900 text-4xl font-semibold gap-2 pt-2">Get the skills you need for a <BlueText text={" job that is in demand. "}/> </p>
+                          <div className=" flex flex-col gap-5 w-[80%] md:w-[45%]" >
+                            <p className="text-richblack-700 font-medium">The modern StudyNotion is the dictates its own terms. Today, to be a competitive specialist requires more than professional skills.</p>
+                            <CTAButton isActive={true} path={"/login"}>{"Learn More"}</CTAButton>
+                          </div>
+                        </div>
+                        {/* QUALITY TimeLine */}
+                        <div className="flex flex-col gap-14 mb-10 lg:flex-row lg:justify-around">
+                          <div className=""><TimeLineQuality/></div>
+                          <div className=" relative shadow-[5px_8px_50px_2px] shadow-blue-200">
+                            <img className="lg:w-[38rem] object-contain  shadow-[15px_15px] shadow-white" src={TimeLineImage}></img>
+                            <div className="absolute -bottom-12 left-14 text-white gap-5 flex justify-between p-5 w-[80%] bg-caribbeangreen-700">
+                              <div className="flex flex-col sm:flex-row justify-center items-start gap-3 w-[40%]">
+                                <p className="text-5xl font-bold">10</p>
+                                <p className="text-caribbeangreen-300 ">YEARS EXPERIENCES</p>
+                              </div>
+                              <div className=" my-2 w-[2px] border-l-[2px] border-caribbeangreen-500"></div>
+                              <div className="flex flex-col sm:flex-row justify-center items-start gap-3 w-[45%]">
+                                <p className="text-5xl font-bold">250</p>
+                                <p className="text-caribbeangreen-300 ">TYPES OF COURSES</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+
+                  </div>
+                </div>
       </div>
     </>
   );

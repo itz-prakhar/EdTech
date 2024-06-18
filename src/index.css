@@ -46,3 +46,7 @@ top: calc(50% - 175.995px);
 transform: matrix(1, 0, -.03, 1, 0, 0);
 width: 372.95px;
 }
+.bgHome{
+  background: url("./assets/Images/bghome.svg");
+  /* background-repeat: unset; */
+}
