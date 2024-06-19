@@ -4,6 +4,7 @@ import img1 from "../../assets/Images/Know_your_progress.png"
 import img2 from "../../assets/Images/Compare_with_others.png"
 import img3 from "../../assets/Images/Plan_your_lessons.png"
 import "../../index.css"
+import CTAButton from './CTAButton'
 
 const TiltedCard = () => {
   return (
@@ -13,10 +14,11 @@ const TiltedCard = () => {
         <p className=' text-richblack-700'>Using spin making learning multiple languages easy. with 20+ languages realistic voice-over, progress tracking, custom schedule and more.</p>
     </div>
     <div className='flex flex-col justify-start items-center mt-5 lg:flex-row animate-float'>
-        <img className='w-[25rem] ' src={img1}></img>
-        <img className='w-[25rem] lg:mx-[-6rem]' src={img2}></img>
-        <img className='w-[25rem] mt-[-3rem] ml-[-1rem]' src={img3}></img>
+        <img className='w-[28rem] ' src={img1}></img>
+        <img className='w-[28rem] lg:mx-[-6rem]' src={img2}></img>
+        <img className='w-[28rem] mt-[-3rem] ml-[-1rem]' src={img3}></img>
     </div>
+    <CTAButton isActive={"true"}  path={"/"}>{"Learn More"}</CTAButton>
     </div>
   )
 }

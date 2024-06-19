@@ -13,6 +13,8 @@ import TimeLineQuality from "../Components/Home/TimeLineQuality";
 import TimeLineImage from "../assets/Images/TimelineImage.png";
 import TiltedCard from "../Components/Home/TiltedCard";
 import Instructor from "../assets/Images/Instructor.png"
+import RevieBox from "../Components/Home/RevieBox";
+import Footer from "../Components/Common/Footer";
 
 const HomePage = () => {
   const [selected, setSelected] = useState(HomePageExplore[0]);
@@ -134,11 +136,11 @@ const HomePage = () => {
               </CTAButton>
             </div>
           </div>
-          <div className="h-[8rem] w-[100%] bg-richblack-900 "></div>
+          <div className=" h-[7rem] md:h-[10rem] w-[100%] bg-richblack-900 "></div>
           {/* QUALITY SECTION */}
           <div className="flex justify-center items-center">
             <div className="w-10/12">
-              <div className="flex flex-col md:flex-row justify-between gap-8 mt-10 mb-16 ">
+              <div className="flex flex-col md:flex-row justify-between gap-8 mt-12 md:mt-20 mb-16 ">
                 <p className="text-richblack-900 text-4xl font-semibold gap-2 pt-2">
                   Get the skills you need for a{" "}
                   <BlueText text={" job that is in demand. "} />{" "}
@@ -155,7 +157,7 @@ const HomePage = () => {
                 </div>
               </div>
               {/* QUALITY TimeLine */}
-              <div className="flex flex-col gap-14 mb-10 lg:flex-row lg:justify-around">
+              <div className="flex flex-col gap-14 mb-10  lg:flex-row lg:justify-around">
                 <div className="">
                   <TimeLineQuality />
                 </div>
@@ -185,19 +187,27 @@ const HomePage = () => {
           </div>
 
           {/* TiltedCardSection */}
-          <div className="flex justify-center items-center py-20">
+          <div className="flex justify-center items-center py-16">
             <TiltedCard />
           </div>
         </div>
         {/* Become Instructor Section */}
         <div className="flex flex-col lg:flex-row py-24 justify-evenly items-center gap-10">
-        <img className="w-[35rem] shadow-[-15px_-15px_rgb(255,255,255)] transition-all duration-500 hover:shadow-[15px_15px_rgb(255,255,255)]" src={Instructor}></img>
-        <div className="flex w-[35%] gap-4  flex-col">
+        <img className="w-9/12 sm:w-[35rem] shadow-[-15px_-15px_rgb(255,255,255)] transition-all duration-500 hover:shadow-[15px_15px_rgb(255,255,255)]" src={Instructor}></img>
+        <div className="flex w-10/12 lg:w-[45%] gap-4  flex-col">
           <p className=" flex flex-col  text-richblack-5 text-4xl font-bold ">Become an <BlueText text={"instructor"}/> </p>
           <p className="text-richblack-300 pb-2 font-semibold">Instructors from around the world teach millions of students on StudyNotion. We provide the tools and skills to teach what you love.</p>
           <CTAButton isActive={"true"} path={"/signup"}>{"Start Teaching Today"} <IoIosArrowRoundForward className="text-2xl font-semibold"/> </CTAButton>
         </div>
         </div>
+        <div className="flex justify-center item-center flex-col">
+          <p className="text-richblack-5 text-4xl font-semibold mx-auto">Reviews from other learners</p>
+          <div className="my-10">
+            <RevieBox/>
+          </div>
+        </div>
+        {/* FOOTER SECTION */}
+        <Footer/>
       </div>
     </>
   );
