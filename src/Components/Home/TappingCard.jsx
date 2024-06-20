@@ -4,9 +4,6 @@ import { ImTree } from "react-icons/im";
 
 const TappingCard = ({selected}) => {
     const [tapped,setTapped] = useState(0);
-    useEffect(()=>{
-        console.log("i am inside tapping card",tapped)
-    },[])
   return (
     <div className='flex flex-col w-[80%] md:flex-row justify-center mt-[-7rem]  gap-10  mb-10 '>
       {

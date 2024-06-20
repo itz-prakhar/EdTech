@@ -5,7 +5,7 @@ import "../../index.css"
 import { IoIosArrowRoundForward } from "react-icons/io";
 
 const CodeBlock = ({position , heading,subHeading , ctaBtn1 , ctaBtn2,codeblock,bgClr,color,gap}) => {
-    console.log(codeblock)
+
   return (
     <div className={` mt-20 px-5 flex flex-col ${position} gap-10 lg:gap-0 justify-evenly items-center w-full   `}>
         <div className="w-[80%] lg:w-[40%] flex flex-col gap-6 text-richblack-300">

@@ -18,9 +18,7 @@ import Footer from "../Components/Common/Footer";
 
 const HomePage = () => {
   const [selected, setSelected] = useState(HomePageExplore[0]);
-  useEffect(() => {
-    console.log("homePage ,selected ", selected);
-  }, []);
+
   return (
     <>
       <div className="bg-richblack-900">
@@ -32,7 +30,7 @@ const HomePage = () => {
             </button>
           </NavLink>
           <div className="flex flex-col items-center  w-[55%] mx-auto">
-            <p className="flex flex-col gap-[0.5rem] text-[2.25rem] font-semibold text-richblack-5 lg:flex-row">
+            <p className="flex flex-col lg:gap-2 text-4xl font-semibold text-richblack-5 lg:flex-row">
               Empower Your Future with <BlueText text={"Coding Skills"} />{" "}
             </p>
             <p className="text-richblack-200 mt-3 lg:text-center">
@@ -192,11 +190,11 @@ const HomePage = () => {
           </div>
         </div>
         {/* Become Instructor Section */}
-        <div className="flex flex-col lg:flex-row py-24 justify-evenly items-center gap-10">
+        <div className="flex flex-col lg:flex-row py-24 justify-around items-center gap-10">
         <img className="w-9/12 sm:w-[35rem] shadow-[-15px_-15px_rgb(255,255,255)] transition-all duration-500 hover:shadow-[15px_15px_rgb(255,255,255)]" src={Instructor}></img>
-        <div className="flex w-10/12 lg:w-[45%] gap-4  flex-col">
+        <div className="flex w-10/12 lg:w-[45%] pl-10 gap-4  flex-col">
           <p className=" flex flex-col  text-richblack-5 text-4xl font-bold ">Become an <BlueText text={"instructor"}/> </p>
-          <p className="text-richblack-300 pb-2 font-semibold">Instructors from around the world teach millions of students on StudyNotion. We provide the tools and skills to teach what you love.</p>
+          <p className="text-richblack-300 pb-2 font-semibold w-[75%]">Instructors from around the world teach millions of students on StudyNotion. We provide the tools and skills to teach what you love.</p>
           <CTAButton isActive={"true"} path={"/signup"}>{"Start Teaching Today"} <IoIosArrowRoundForward className="text-2xl font-semibold"/> </CTAButton>
         </div>
         </div>

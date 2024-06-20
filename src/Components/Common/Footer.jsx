@@ -7,9 +7,7 @@ import { FcGoogle } from "react-icons/fc";
 import StudyNotion from "../../assets/Logo/Logo-Full-Light.png"
 
 const Footer = () => {
-  useEffect(() => {
-    console.log("Footer", FooterLink2[0].links);
-  }, []);
+
   return (
     <div className="flex flex-col lg:flex-row justify-center gap-10 bg-richblack-800 p-10  ">
       {/* LEFT */}
@@ -78,10 +76,10 @@ const Footer = () => {
       {/* RIGHT  */}
       <div className="flex flex-wrap gap-14 ">
         {FooterLink2.map((data, index) => (
-          <div className="flex flex-col gap-1 ">
+          <div key={index} className="flex flex-col gap-1 ">
             <p className="text-richblack-50 font-semibold text-lg mb-2   ">{data.title}</p>
             {data.links.map((data, index) => (
-              <p className="text-richblack-400 hover:text-richblack-5 hover:cursor-pointer ">{data.title}</p>
+              <p key={index} className="text-richblack-400 hover:text-richblack-5 hover:cursor-pointer ">{data.title}</p>
             ))}
           </div>
         ))}

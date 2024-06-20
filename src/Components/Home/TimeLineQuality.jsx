@@ -30,7 +30,7 @@ const TimeLineQuality = () => {
   return (
     <div className="flex flex-col">
       {TimeLine.map((data, index) => (
-        <div className="flex gap-10">
+        <div key={index} className="flex gap-10">
           <div className="flex flex-col justify-center items-center">
             <img
               className="p-2 h-10 w-10 object-contain scale-125 bg-white rounded-full"
