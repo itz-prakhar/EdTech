@@ -3,10 +3,12 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import "./index.css"
 import Navbar from './Components/Common/Navbar'
-import { NavLink, Routes } from 'react-router-dom'
+import { NavLink, Routes,Route } from 'react-router-dom'
 
 
 import HomePage from './Pages/HomePage'
+import LoginPage from './Pages/LoginPage'
+import SignupPage from './Pages/SignupPage'
 
 function App() {
   return (
@@ -14,11 +16,12 @@ function App() {
     <Navbar/>
                                {/* {homepage} */}
     <div className='w-full h-full'>
-      <HomePage></HomePage>
     </div> 
    
     <Routes>
-
+      <Route path="/" element={<HomePage/>} ></Route>
+      <Route path='/login' element={<LoginPage/>}  />
+      <Route path='/signup' element={<SignupPage/>} />
     </Routes>
     </>
   )
