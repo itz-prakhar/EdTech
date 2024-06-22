@@ -1,14 +1,24 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FaRegEye } from "react-icons/fa";
 import { FaRegEyeSlash } from "react-icons/fa";
+import { useDispatch,useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import {setLoading} from "../../Redux/Slice/authSlice"
+import Spinner from "../Common/Spinner"
+import {Login} from "../../services/operation/authApi" 
 
 const LoginForm = () => {
     const [formData,setFormData]=useState({
-        email:"hii",
-        password:""
+        email:"rishiadmin@gmail.com",
+        password:"12345"
     })
     const [isShown,setShown]=useState(false)
     const {email,password}=formData;
+    const {loading}=useSelector((state)=>state.auth)
+    
+    const dispatch=useDispatch();
+    const navigate =useNavigate()
+
     const changeHandler=(e)=>{
         setFormData((prev)=>({
             ...prev,
@@ -17,10 +27,12 @@ const LoginForm = () => {
     }
     const submitHandler=(e)=>{
         e.preventDefault();
-        console.log("fromData",formData)
+        dispatch(Login(email,password,navigate))
     }
   return (
-    <div className="flex w-full text-richblack-5">
+    <>
+      {
+        !loading ?(    <div className="flex w-full text-richblack-5">
       <form className="flex gap-5 w-full flex-col" onSubmit={submitHandler}>
         <div className="flex flex-col">
           <label >
@@ -52,7 +64,12 @@ const LoginForm = () => {
         </div>
         <button className="bg-yellow-50 hover:bg-yellow-100 mt-4 font-medium  text-richblack-900 p-2 rounded-lg">Sign in</button>
       </form>
-    </div>
+    </div>):(
+        <Spinner/>
+    )
+      }  
+    </>
+
   );
 };
 

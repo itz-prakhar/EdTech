@@ -8,6 +8,7 @@ import { configureStore } from "@reduxjs/toolkit";
 
 import authProvider from "./Redux/Slice/authSlice.jsx"
 import userReducer from "./Redux/Slice/userSlice.jsx"
+import { Toaster } from "react-hot-toast";
 
 export const store = configureStore({
     reducer:{
@@ -21,6 +22,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <Provider store={store}>
       <BrowserRouter>
         <App />
+        <Toaster/>
       </BrowserRouter>
     </Provider>
   </React.StrictMode>
