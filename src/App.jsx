@@ -5,6 +5,7 @@ import "./index.css"
 import Navbar from './Components/Common/Navbar'
 import { NavLink, Routes,Route } from 'react-router-dom'
 import Spinner from "./Components/Common/Spinner"
+import OtpPage from "./Pages/OtpPage"
 
 
 import HomePage from './Pages/HomePage'
@@ -25,6 +26,7 @@ function App() {
       <Route path='/login' element={<LoginPage/>}  />
       <Route path='/signup' element={<SignupPage/>} />
       <Route path="/dashboard" element={<Dashboard/>} />
+      <Route path='/otp' element={<OtpPage/>} />
     </Routes>
     </>
   )

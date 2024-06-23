@@ -5,4 +5,6 @@ export const categories = {
 };
 export const authenticate={
   LOGIN_API:BASEURL+"/auth/login",
+  SEND_OTP:BASEURL+"/auth/sendOTP",
+  SIGNUP_API:BASEURL+"/auth/signup"
 }

@@ -29,10 +29,64 @@ export function Login(email,password,navigate){
            localStorage.setItem('user',JSON.stringify(response.user))
            const tokenUser=localStorage.getItem("user")
            console.log("tokenUser",JSON.parse(tokenUser).firstName)
+           dispatch(setLoading(false));
            navigate("/dashboard")
         }
         catch(err){
             console.log("Error in login ",err)
+            dispatch(setLoading(false));
+        }
+    }
+}
+export function SendOTP(email,navigate){
+    return async(dispatch)=>{
+        dispatch(setLoading(true))
+        const toastId=toast.loading("loading")
+        try{
+            const response = await fetchData("POST" , authenticate.SEND_OTP,{email})
+            if(!response.success){
+                toast.error("Account already Registered,Please LogIn")
+            }
+            console.log("response OTP",response)
+            toast.success("Send otp Succesfully");
+            navigate("/otp")
+        }
+        catch(err){
+            console.log("Error in OTP validation",err)
+            toast.error("Account already exist,Please LogIn")
+            
+        }
+        finally{
+            dispatch(setLoading(false))
+            toast.dismiss(toastId)
+        }
+        
+    }
+}
+export function Signup(accountType,firstName,lastName,email,password,confirmPassword,otp,navigate){
+    return async(dispatch)=>{
+        dispatch(setLoading(true))
+        const toastId=toast.loading("Loading");
+        try{
+            const response = await fetchData("POST",authenticate.SIGNUP_API,{accountType,firstName,lastName,email,password,confirmPassword,otp})
+            if(!response.success){
+                toast.err("Error in SignUp")
+            }
+            console.log("response Signup",response)
+            //token empty  user empty  navigate to login //localstore Empty
+            dispatch(setToken(null))
+            dispatch(setUser(0))
+            localStorage.clear()
+            navigate("/login")
+
+        }
+        catch(err){
+            console.log("Error in ")
+            toast.error("Error in SignUp")
+        }
+        finally{
+            dispatch(setLoading(false))
+            toast.dismiss(toastId)
         }
     }
 }
