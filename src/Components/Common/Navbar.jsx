@@ -9,7 +9,7 @@ import fetchData from "../../services/apiConnector";
 import { categories } from "../../services/APIs";
 import { useSelector } from "react-redux";
 import { PiShoppingCartDuotone } from "react-icons/pi";
-import BlueText from "../Common/BlueText"
+import BlueText from "../Common/BlueText";
 
 const Navbar = () => {
   const [subLinks, setSubLinks] = useState([]);
@@ -24,6 +24,7 @@ const Navbar = () => {
   useEffect(() => {
     // Clear all items
     fetchCategories();
+    // console.log("subLinks",subLinks)
   }, []);
 
   const token = localStorage.getItem("token");
@@ -57,9 +58,9 @@ const Navbar = () => {
                   <div className="invisible absolute left-[50%] top-[50%] z-[1000] flex w-[200px] translate-x-[-50%] translate-y-[3em] flex-col rounded-lg bg-richblack-5 p-4 text-richblack-800 text-xlx  opacity-0 transition-all duration-300 group-hover:visible  group-hover:translate-y-[1.65em] lg:text-lg group-hover:opacity-100 lg:w-[280px]">
                     <div className="absolute left-[50%] top-0 -z-10 h-6 w-6 translate-x-[80%] translate-y-[-40%] rotate-45 select-none rounded bg-richblack-5"></div>
 
-                    {subLinks.map((link, index) => (
+                    {subLinks.map((link, sindex) => (
                       <NavLink
-                        key={index}
+                        key={sindex}
                         to={`/catalog/${link.name
                           .split(" ")
                           .join("-")
@@ -95,13 +96,14 @@ const Navbar = () => {
           </NavLink>
         </div>
       ) : user && user.accountType == "Student" ? (
-        <div  className=" relative flex items-center gap-6"> 
-        <PiShoppingCartDuotone className="text-richblack-100 text-3xl"/>
-        {/* <span className="absolute text-white -top-0 animate-bounce left-5 bg-pink-300 rounded-full text-sm font-semibold  px-1"> <BlueText text={9}/> </span> */}
-        <img
-          className="w-10 h-10 hover:shadow-[1px_-1px_20px_-3px] border-[3px] border-yellow-25 p-1 object-fill  rounded-full"
-          src={user.image}
-        ></img></div>
+        <div className=" relative flex items-center gap-6">
+          <PiShoppingCartDuotone className="text-richblack-100 text-3xl" />
+          {/* <span className="absolute text-white -top-0 animate-bounce left-5 bg-pink-300 rounded-full text-sm font-semibold  px-1"> <BlueText text={9}/> </span> */}
+          <img
+            className="w-10 h-10 hover:shadow-[1px_-1px_20px_-3px] border-[3px] border-yellow-25 p-1 object-fill  rounded-full"
+            src={user.image}
+          ></img>
+        </div>
       ) : (
         <img
           className="w-12 h-12 hover:shadow-[1px_-1px_20px_-3px] border-[3px] border-yellow-25 p-1 object-fill  rounded-full"

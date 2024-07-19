@@ -12,6 +12,7 @@ import HomePage from './Pages/HomePage'
 import LoginPage from './Pages/LoginPage'
 import SignupPage from './Pages/SignupPage'
 import Dashboard from './Pages/Dashboard'
+import AboutPage from './Pages/AboutPage'
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
       <Route path='/signup' element={<SignupPage/>} />
       <Route path="/dashboard" element={<Dashboard/>} />
       <Route path='/otp' element={<OtpPage/>} />
+      <Route path="/about" element={<AboutPage/>} />
     </Routes>
     </>
   )

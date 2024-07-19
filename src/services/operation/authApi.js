@@ -19,7 +19,7 @@ export function Login(email,password,navigate){
            const token=response.token;
            toast.success("LoggedIn Successful")
            const user=JSON.stringify(response.user)
-           console.log("responseUser",user," ");
+        //    console.log("responseUser",user," ");
 
            dispatch(setToken(token));
            dispatch(setUser(response.user))
@@ -28,6 +28,7 @@ export function Login(email,password,navigate){
            localStorage.setItem('token',token)
            localStorage.setItem('user',JSON.stringify(response.user))
            const tokenUser=localStorage.getItem("user")
+        //    console.log("tokenUsertokenUser",tokenUser)
            console.log("tokenUser",JSON.parse(tokenUser).firstName)
            dispatch(setLoading(false));
            navigate("/dashboard")
@@ -35,6 +36,11 @@ export function Login(email,password,navigate){
         catch(err){
             console.log("Error in login ",err)
             dispatch(setLoading(false));
+            toast.error("Invalid Credentials")
+        }
+        finally{
+            dispatch(setLoading(false))
+            toast.dismiss(toastId);
         }
     }
 }
@@ -54,7 +60,7 @@ export function SendOTP(email,navigate){
         catch(err){
             console.log("Error in OTP validation",err)
             toast.error("Account already exist,Please LogIn")
-            
+            toast.dismiss(toastId)
         }
         finally{
             dispatch(setLoading(false))
@@ -77,11 +83,12 @@ export function Signup(accountType,firstName,lastName,email,password,confirmPass
             dispatch(setToken(null))
             dispatch(setUser(0))
             localStorage.clear()
+            toast.success("Signup Successfully ,Please login..")
             navigate("/login")
 
         }
         catch(err){
-            console.log("Error in ")
+            console.log("Wrong OTP ")
             toast.error("Error in SignUp")
         }
         finally{
