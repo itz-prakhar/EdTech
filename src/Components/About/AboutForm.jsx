@@ -27,11 +27,11 @@ const AboutForm = () => {
     <div className="flex flex-col mt-5 text-richblack-25">
       <form className="flex flex-col gap-5" onSubmit={handleSubmit(submitFrom)}>
         {/* NAME */}
-        <div className="flex flex-col md:flex-row md:justify-between gap-5 md:gap-10 lg:gap-16 md:items-center">
+        <div className="flex flex-col md:flex-row md:justify-between gap-5 ">
           <div className="flex flex-col gap-1">
             <label htmlFor="firstName">First Name</label>
             <input
-              className="bg-richblack-800 flex rounded-lg p-3 outline-none mt-1 shadow-sm shadow-richblack-5 border-2 border-richblack-800 focus:border-richblack-400"
+              className="bg-richblack-800 w-full flex rounded-lg p-3 outline-none mt-1 shadow-sm shadow-richblack-5 border-2 border-richblack-800 focus:border-richblack-400"
               type="text"
               name="firstName"
               placeholder="Enter first name"
@@ -46,7 +46,7 @@ const AboutForm = () => {
           <div className="flex flex-col gap-1">
             <label htmlFor="lastName">Last Name</label>
             <input
-              className="bg-richblack-800 flex rounded-lg p-3 outline-none mt-1 shadow-sm shadow-richblack-5 border-2 border-richblack-800 focus:border-richblack-400"
+              className="bg-richblack-800 w-full flex rounded-lg p-3 outline-none mt-1 shadow-sm shadow-richblack-5 border-2 border-richblack-800 focus:border-richblack-400"
               type="text"
               name="lastName"
               placeholder="Enter last name"
@@ -114,6 +114,7 @@ const AboutForm = () => {
             name="message"
             cols={60}
             rows={5}
+            placeholder="Enter your message..."
             {...register("message",{required:true})}
             ></textarea>
             {
