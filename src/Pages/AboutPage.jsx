@@ -8,6 +8,11 @@ import OrangeText from "../Components/Common/OrangeText";
 import { FaQuoteLeft } from "react-icons/fa";
 import { FaQuoteRight } from "react-icons/fa";
 import FoundingStory from "../assets/Images/FoundingStory.png";
+import StatsData from "../Components/About/StatsData";
+import GridSection from "../Components/About/GridSection";
+import AboutUsForm from "../Components/About/AboutUsForm";
+import RevieBox from "../Components/Home/RevieBox";
+import Footer from "../Components/Common/Footer";
 
 const AboutPage = () => {
   return (
@@ -48,8 +53,8 @@ const AboutPage = () => {
         </p>
       </div>
       {/* section2 */}
-      <div className=" text-richblack-5 flex justify-center items-center bg-richblack-900">
-        <div className="w-10/12 mt-10 flex flex-col lg:flex-row justify-between gap-8 items-center">
+      <div className=" text-richblack-5 flex flex-col gap-20 md:gap-36 justify-center items-center py-24 bg-richblack-900">
+        <div className="w-10/12  flex flex-col lg:flex-row justify-between gap-8 items-center">
           <div className="flex flex-col gap-5">
             <h2 className="redGradient text-4xl font-bold">
               Our Founding Story{" "}
@@ -71,12 +76,63 @@ const AboutPage = () => {
             </p>
           </div>
           <div className="relative">
-          <div className=" absolute codeblock3" ></div>
-          <img className="w-[105rem] mt-2 brightness-100" src={FoundingStory}></img>
+            <div className=" absolute codeblock3"></div>
+            <img
+              className="w-[105rem] mt-2 brightness-100"
+              src={FoundingStory}
+            ></img>
           </div>
-          
+        </div>
+        <div className="w-10/12  flex flex-col lg:flex-row justify-between gap-14 lg:gap-[22rem] items-center  ">
+          <div className="flex flex-col gap-3 md:gap-5">
+            <p className=" text-4xl font-bold">
+              {" "}
+              <OrangeText text={"Our Vision"} />{" "}
+            </p>
+            <p className="text-richblack-300">
+              With this vision in mind, we set out on a journey to create an
+              e-learning platform that would revolutionize the way people learn.
+              Our team of dedicated experts worked tirelessly to develop a
+              robust and intuitive platform that combines cutting-edge
+              technology with engaging content, fostering a dynamic and
+              interactive learning experience.
+            </p>
+          </div>
+          <div className="flex flex-col gap-3 md:gap-5  ">
+            <p className=" text-4xl font-bold flex ">
+              {" "}
+              <BlueText text={"Our Mission"} />{" "}
+            </p>
+            <p className="text-richblack-300    ">
+              Our mission goes beyond just delivering courses online. We wanted
+              to create a vibrant community of learners, where individuals can
+              connect, collaborate, and learn from one another. We believe that
+              knowledge thrives in an environment of sharing and dialogue, and
+              we foster this spirit of collaboration through forums, live
+              sessions, and networking opportunities.
+            </p>
+          </div>
         </div>
       </div>
+      {/* {STATS DATA} */}
+      <StatsData />
+      {/* GRID SECTION */}
+      <GridSection />
+      {/* FORM */}
+      <AboutUsForm />
+      {/* REVIEW */}
+      <div className=" bg-richblack-900 flex py-20 pb-14 justify-center item-center">
+        <div className=" w-10/12 flex flex-col">
+          <p className="text-richblack-5 text-4xl font-semibold mx-auto">
+            Reviews from other learners
+          </p>
+          <div className="my-10">
+            <RevieBox />
+          </div>
+        </div>
+      </div>
+      {/* FOOTER */}
+      <Footer/>
     </div>
   );
 };
