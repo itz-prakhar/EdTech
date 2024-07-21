@@ -13,6 +13,7 @@ import LoginPage from './Pages/LoginPage'
 import SignupPage from './Pages/SignupPage'
 import Dashboard from './Pages/Dashboard'
 import AboutPage from './Pages/AboutPage'
+import ContactUsPage from './Pages/ContactUsPage'
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
       <Route path="/dashboard" element={<Dashboard/>} />
       <Route path='/otp' element={<OtpPage/>} />
       <Route path="/about" element={<AboutPage/>} />
+      <Route path="/contact" element={<ContactUsPage/>} />
     </Routes>
     </>
   )

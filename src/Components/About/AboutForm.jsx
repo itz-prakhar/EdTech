@@ -117,7 +117,7 @@ const AboutForm = () => {
         <div>
             <label htmlFor="message">Message</label>
             <textarea
-            className="bg-richblack-800 flex rounded-lg p-3 outline-none mt-1 shadow-sm shadow-richblack-5 border-2 border-richblack-800 focus:border-richblack-400"
+            className="bg-richblack-800 flex rounded-lg p-3 w-full outline-none mt-1 shadow-sm shadow-richblack-5 border-2 border-richblack-800 focus:border-richblack-400"
             
             type="text"
             name="message"
