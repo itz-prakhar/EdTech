@@ -8,3 +8,7 @@ export const authenticate={
   SEND_OTP:BASEURL+"/auth/sendOTP",
   SIGNUP_API:BASEURL+"/auth/signup"
 }
+
+export const contactUsForm={
+  SendMail_API:BASEURL+"/auth/contactUs"
+}

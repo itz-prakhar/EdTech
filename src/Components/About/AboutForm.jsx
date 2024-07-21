@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import CountryCode from "../../Data/countrycode.json";
+import {contactUsForm} from "../../services/APIs/"
+import fetchData from "../../services/apiConnector"
 
 const AboutForm = () => {
   const {
@@ -16,12 +18,19 @@ const AboutForm = () => {
         lastName: "",
         email: "",
         message: "",
-        phoneNo: "",
+        contactNumber: "",
       });
     }
   }, [reset, isSubmitSuccessful]);
   const submitFrom = async (data) => {
     console.log("Form Data", data);
+    try{
+      const response = await fetchData("POST",contactUsForm.SendMail_API,data)
+      console.log("response",response)
+    }
+    catch(err){
+      console.log("error in sending message email")
+    }
   };
   return (
     <div className="flex flex-col mt-5 text-richblack-25">
@@ -81,8 +90,8 @@ const AboutForm = () => {
           <div className="flex gap-5">
             <select
               className="max-w-20 bg-richblack-800 flex rounded-lg p-3 px-2 outline-none mt-1 shadow-sm shadow-richblack-5 border-2 border-richblack-800 focus:border-richblack-400"
-              name="country"
-              {...register("country", { required: true })}
+              name="countryCode"
+              {...register("countryCode", { required: true })}
             >
               {CountryCode.map((data, index) => (
                 <option value={data.code}>
@@ -93,9 +102,9 @@ const AboutForm = () => {
             <input
               className="bg-richblack-800 w-full flex rounded-lg p-3 outline-none mt-1 shadow-sm shadow-richblack-5 border-2 border-richblack-800 focus:border-richblack-400"
               type="number"
-              name="phoneNo"
+              name="contactNumber"
               placeholder="969530xxxx"
-              {...register("phoneNo", { required: true })}
+              {...register("contactNumber", { required: true })}
             ></input>
           </div>
           {errors.phoneNo && (
