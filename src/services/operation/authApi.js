@@ -31,7 +31,7 @@ export function Login(email,password,navigate){
         //    console.log("tokenUsertokenUser",tokenUser)
            console.log("tokenUser",JSON.parse(tokenUser).firstName)
            dispatch(setLoading(false));
-           navigate("/dashboard")
+           navigate("/dashboard/my-profile")
         }
         catch(err){
             console.log("Error in login ",err)
@@ -95,5 +95,15 @@ export function Signup(accountType,firstName,lastName,email,password,confirmPass
             dispatch(setLoading(false))
             toast.dismiss(toastId)
         }
+    }
+}
+export function Logout(navigate){
+    return (dispatch)=>{
+        dispatch(setUser(0))
+        dispatch(setToken(null))
+        localStorage.removeItem("user")
+        localStorage.removeItem("token")
+        toast.success("Logged Out")
+        navigate("/")
     }
 }
