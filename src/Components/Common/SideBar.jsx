@@ -12,7 +12,7 @@ const SideBar = () => {
 
   const [confirmationModal, setConfirmationModal] = useState(false)
   return (
-    <div className='flex md:flex-col gap-5 p-5 text-richblack-200 bg-richblack-800 md:min-h-[90vh] '>
+    <div className='flex md:flex-col gap-5 p-5 pr-10 text-richblack-200 bg-richblack-800 md:min-h-[90vh] '>
     <div className=' grid grid-cols-2  sm:grid-cols-4 md:flex flex-col gap-5'>    {
         sidebarLinks.map((data) => {
           if (user.accountType !=="Admin" && (data.type && user.accountType !== data.type)) return null

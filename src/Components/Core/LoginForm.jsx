@@ -9,8 +9,8 @@ import {Login} from "../../services/operation/authApi"
 
 const LoginForm = () => {
     const [formData,setFormData]=useState({
-        email:"rishiadmin@gmail.com",
-        password:"12345"
+        email:"rishi@gmail.com",
+        password:"123456"
     })
     const [isShown,setShown]=useState(false)
     const {email,password}=formData;

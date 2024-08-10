@@ -14,7 +14,7 @@ import AboutPage from './Pages/AboutPage'
 import ContactUsPage from './Pages/ContactUsPage'
 import ProtectedRoute from './Components/Core/Auth/ProtectedRoute'
 import MyProfile from './Components/Core/MyProfile'
-import Setting from './Components/Core/Setting'
+import Setting from './Components/Dashboard/Setting/Setting'
 import ConfirmationWindow from './Components/Dashboard/ConfirmationWindow'
 import { ACCOUNT_TYPE } from './utils/constants'
 import { useSelector } from 'react-redux'
@@ -24,6 +24,7 @@ import EditCourse from './Components/Dashboard/EditCourse/EditCourse'
 import MyCourse from './Components/Dashboard/MyCourse/MyCourse'
 import Cart from './Components/Dashboard/Cart/Cart'
 import EnrolledCourse from './Components/Dashboard/EnrolledCourse/EnrolledCourse'
+import NotFound from './Components/Common/NotFound'
 
 function App() { 
   const {user} = useSelector((state)=>state.user)
@@ -46,7 +47,7 @@ function App() {
         <Route path="dashboard/my-profile" element={<MyProfile/>} />
         <Route path="dashboard/setting" element={<Setting/>} />
         {
-          user.accountType===ACCOUNT_TYPE.STUDENT &&(
+          (user.accountType===ACCOUNT_TYPE.STUDENT|| user.accountType===ACCOUNT_TYPE.ADMIN) &&(
             <>
               <Route path="dashboard/cart" element={<Cart/>} />
               <Route path="dashboard/enrolled-courses" element={<EnrolledCourse/>} />
@@ -54,7 +55,7 @@ function App() {
           )
         }
         {
-          user.accountType===ACCOUNT_TYPE.INSTRUCTOR &&(<>
+         ( user.accountType===ACCOUNT_TYPE.INSTRUCTOR ||  user.accountType===ACCOUNT_TYPE.ADMIN) &&(<>
               <Route path="dashboard/instructor" element={<InstructorDashboard/>} />
               <Route path="dashboard/add-course" element={<AddCourse/>} />
               <Route path="dashboard/my-courses"  element={<MyCourse/>}/>
@@ -62,6 +63,7 @@ function App() {
           </>)
         }
       </Route>
+      <Route path = "*" element={<NotFound/>} ></Route>
     </Routes>
     </>
   )
