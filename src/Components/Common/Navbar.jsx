@@ -44,7 +44,7 @@ const Navbar = () => {
     <div className="flex z-20 h-[10vh]  justify-around items-center bg-richblack-800 border-b-[1px] border-richblack-600 py-2">
       <img className="w-[10rem]" src={Logo}></img> 
       {/* Switching icons of nav */}
-      <div className="  sm:flex hidden gap-5 text-richblack-25">
+      <div className="sm:flex hidden gap-5 text-richblack-25">
         {NavbarLinks.map((data, index) =>
           data.title == "Catalog" ? (
             < >
@@ -127,7 +127,7 @@ const Navbar = () => {
         ></img>
                     <div className="relative group text-richblack-5">
             <FaCaretDown/>
-            <div className="absolute invisible group-hover:visible flex flex-col top-[2.5rem] left-[-6rem] md:top-4 md:left-[-5rem] rounded-lg text-richblack-5 font-semibold p-2 justify-center bg-richblack-800 opacity-90 border-[1px] border-richblack-5 " >
+            <div className="absolute invisible opacity-90 group-hover:visible  transition-all delay-500 flex flex-col top-[2.5rem] left-[-6rem] md:top-4 md:left-[-5rem] rounded-lg text-richblack-5 font-semibold p-2 justify-center bg-richblack-800  border-[1px] border-richblack-5 " >
               <NavLink to="/dashboard/my-profile"  className="flex gap-1 items-center hover:underline"> <RiDashboard2Line/> Dashboard</NavLink>
               <button className=" flex gap-1 items-center hover:underline" onClick={()=>dispatch(Logout(navigate))}> <MdLogout/> Logout</button>
             </div>

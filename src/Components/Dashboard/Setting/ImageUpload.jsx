@@ -1,12 +1,7 @@
 import React, { useState, useRef } from "react";
-import {setUser,setLoading} from "../../../Redux/Slice/userSlice"
-import { useEffect } from "react";
 import { useSelector,useDispatch } from "react-redux";
-import fetchData from "../../../services/apiConnector"
 import Loader from "../../Common/Loader"
-import {updateProfile} from "../../../services/APIs"
-import axios from 'axios'
-import {toast} from "react-hot-toast"
+import {updatePicture} from "../../../services/operation/settingApiCall"
 
 
 const ImageUpload = () => {
@@ -33,34 +28,12 @@ const ImageUpload = () => {
     }
   };
   // uploading picture to backend
-  const fetchPicture = async ()=>{
+  const fetchPicture =()=>{
     const formData = new FormData();
     formData.append("displayPicture",imageUpload)
     // formData.append("token",token)
+    dispatch(updatePicture(formData,token))
 
-    let toastId
-    try{
-      dispatch(setLoading(true))
-      toastId = toast.loading("Uploading")
-      console.log("formData", Array.from(formData.entries()));
-     const response = await axios.put(updateProfile.updateProfilePicture,formData, { headers: {
-      'Content-Type': 'multipart/form-data',
-      'Authorization':`Bearer ${token}`
-      
-    }})
-
-    toast.success("Uploaded Successfully")
-    dispatch(setUser(response.data.uploadImage))
-    localStorage.setItem("user",JSON.stringify(response.data.uploadImage))
-    }
-    catch(e){
-      toast.error("Error in uploading")
-      console.log("error while uplaoding image",e)
-    }
-    finally{
-      toast.dismiss(toastId)
-      dispatch(setLoading(false))
-    }
   }
   return (
     <div className="flex items-start sm:items-center gap-5 flex-col sm:flex-row">

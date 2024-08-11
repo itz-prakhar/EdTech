@@ -29,8 +29,8 @@ const HomePage = () => {
               <IoIosArrowRoundForward className="text-2xl" />
             </button>
           </NavLink>
-          <div className="flex flex-col items-center  w-[55%] mx-auto">
-            <p className="flex flex-col lg:gap-2 text-4xl font-semibold text-richblack-5 lg:flex-row">
+          <div className="flex flex-col items-center  w-[60%] mx-auto">
+            <p className="text-4xl font-semibold text-richblack-5 ">
               Empower Your Future with <BlueText text={"Coding Skills"} />{" "}
             </p>
             <p className="text-richblack-200 mt-3 lg:text-center">
