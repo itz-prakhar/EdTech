@@ -13,5 +13,6 @@ export const contactUsForm={
   SendMail_API:BASEURL+"/auth/contactUs"
 }
 export const updateProfile={
-  updateProfilePicture:BASEURL+"/profile/updateProfilePicture"
+  updateProfilePicture:BASEURL+"/profile/updateProfilePicture",
+  updateProfile:BASEURL+"/profile/updateProfile"
 }

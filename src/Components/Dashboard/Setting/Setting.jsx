@@ -1,5 +1,6 @@
 import React from 'react'
 import ImageUpload from './ImageUpload'
+import EditProfile from './EditProfile'
 
 const Setting = () => {
   return (
@@ -10,6 +11,10 @@ const Setting = () => {
       <div className='bg-richblack-800 px-10 py-7 rounded-lg border-[1px] border-richblack-600'>
         <ImageUpload/>
       </div>
+      <div className='bg-richblack-800 px-10 py-7 rounded-lg border-[1px] border-richblack-600' >
+        <EditProfile/>
+      </div>
+      
        </div>
     </div>
   )

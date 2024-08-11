@@ -21,7 +21,7 @@ const MyProfile = () => {
             <img src={user.image} className="w-[6rem] aspect-square rounded-full" ></img>
               <div className="">
                 <p className="flex font-bold text-lg">{user.firstName} {user.lastName}</p>
-                <p className="text-richblack-400 text-sm">{user.email}</p>
+                <p className="text-richblack-400 font-medium  text-sm">{user.email}</p>
               </div>
             </div>
             <EditBtn path={"/dashboard/setting"} />
@@ -30,7 +30,7 @@ const MyProfile = () => {
           <div className="flex flex-col sm:flex-row bg-richblack-800 justify-between items-start px-10 py-7 gap-10 sm:gap-0 rounded-lg border-[1px] border-richblack-600 ">
             <div className="flex flex-col gap-5 items-start">
                 <p className="flex font-bold text-lg">About</p>
-                <p className="text-richblack-400 text-sm">{user.additionalDetails.about || "Write Something About Yourself"}</p>
+                <p className="text-richblack-400 font-medium text-sm">{user.additionalDetails.about || "Write Something About Yourself"}</p>
                 
             </div>
             <EditBtn path={"/dashboard/setting"} />

@@ -2,6 +2,7 @@ import {toast} from "react-hot-toast"
 import axios from "axios"
 import { updateProfile } from "../APIs"
 import { setUser,setLoading } from "../../Redux/Slice/userSlice"
+import fetchData from "../apiConnector"
 export function updatePicture (formData,token){
     return async (dispatch)=>{
 
@@ -30,4 +31,25 @@ export function updatePicture (formData,token){
           dispatch(setLoading(false))
         }
     }
+}
+export function updateProfileDetails (data,token,navigate){
+  return async(dispatch)=>{
+    let toastId
+    try{
+      toastId=toast.loading("Updating Profile Details")
+      const response= await fetchData("PUT",updateProfile.updateProfile,data,token)
+      dispatch(setUser(response.UserDetails))
+      localStorage.setItem("user",JSON.stringify(response.UserDetails))
+      toast.success("Successfully Profile Updated")
+      toast.dismiss(toastId)
+      navigate("/dashboard/my-profile")
+    }
+    catch(err){
+      toast.error("Error while Updating Profile Details")
+      console.log("Error while Updating Profile")
+    }
+    finally{
+      toast.dismiss(toastId)
+    }
+  }
 }
