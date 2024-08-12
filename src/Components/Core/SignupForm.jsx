@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { FaRegEye } from "react-icons/fa";
-import { FaRegEyeSlash } from "react-icons/fa";
+import { FaRegEye,FaRegEyeSlash } from "react-icons/fa";
 import { useDispatch,useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import {SendOTP} from "../../services/operation/authApi"

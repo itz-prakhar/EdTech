@@ -1,3 +1,5 @@
+import UpdatePassword from "../Components/Dashboard/Setting/UpdatePassword";
+
 const BASEURL = import.meta.env.VITE_BASE_URL;
 
 export const categories = {
@@ -14,5 +16,7 @@ export const contactUsForm={
 }
 export const updateProfile={
   updateProfilePicture:BASEURL+"/profile/updateProfilePicture",
-  updateProfile:BASEURL+"/profile/updateProfile"
+  updateProfile:BASEURL+"/profile/updateProfile",
+  UpdatePassword_API:BASEURL+"/auth/forgetPassword",
+  deleteProfile_API:BASEURL+"/profile/deleteAccount"
 }

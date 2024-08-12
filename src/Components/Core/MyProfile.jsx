@@ -17,11 +17,13 @@ const MyProfile = () => {
         <div className=" flex flex-col flex-1 mt-10 justify-center gap-10">
           {/* Div1 */}
           <div className="flex flex-col sm:flex-row bg-richblack-800 justify-between items-start sm:items-center px-10 py-7 gap-10 sm:gap-0 rounded-lg border-[1px] border-richblack-600 ">
-            <div className="flex flex-col gap-5 sm:items-center">
+            <div className="flex flex-col  gap-5 sm:items-start">
             <img src={user.image} className="w-[6rem] aspect-square rounded-full" ></img>
-              <div className="">
-                <p className="flex font-bold text-lg">{user.firstName} {user.lastName}</p>
-                <p className="text-richblack-400 font-medium  text-sm">{user.email}</p>
+              <div className="flex flex-col md:flex-row md:items-start md:gap-5">
+               <div><p className="flex  font-bold text-lg">{user.firstName} {user.lastName}</p>
+               <p className="text-richblack-400 font-medium  text-sm">{user.email}</p></div> 
+               <div><p className="flex text-richblack-300 items-center gap-1 font-bold text-lg">Role : <span className="text-yellow-200 font-semibold text-sm">{user.accountType}</span></p>
+               </div> 
               </div>
             </div>
             <EditBtn path={"/dashboard/setting"} />

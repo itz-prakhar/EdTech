@@ -3,6 +3,7 @@ import axios from "axios"
 import { updateProfile } from "../APIs"
 import { setUser,setLoading } from "../../Redux/Slice/userSlice"
 import fetchData from "../apiConnector"
+import { setToken } from "../../Redux/Slice/authSlice"
 export function updatePicture (formData,token){
     return async (dispatch)=>{
 
@@ -52,4 +53,47 @@ export function updateProfileDetails (data,token,navigate){
       toast.dismiss(toastId)
     }
   }
+}
+export function UpdatePasswordDetails (oldPassword,newPassword,email,token){
+  
+  return async (dispatch)=>{
+    let toastId
+    try{
+      toastId=toast.loading("Updating Password")
+      const response = await fetchData("POST",updateProfile.UpdatePassword_API,{oldPassword,newPassword,confirmPassword:newPassword,email},token)
+      console.log("I am in SettingPassword",response.newUser)
+      dispatch(setUser(response.newUser))
+      localStorage.setItem("user",JSON.stringify(response.newUser))
+      toast.success("Password Updated Successfully")
+    }
+    catch(err){
+      toast.error("Unable to Update Password")
+    }
+    finally{
+      toast.dismiss(toastId)
+    }
+  }
+}
+export function DeleteUserProfile (token,navigate){
+ return async (dispatch)=>{
+  let toastId
+  try{
+    toast.loading("Deleting user account")
+    const response=await fetchData("DELETE",updateProfile.deleteProfile_API,{},token)
+    console.log("Resposne in delete account",response)
+    toast.success("Profile Deleted Successfully")
+    toast.dismiss(toastId)
+    dispatch(setUser(0))
+    dispatch(setToken(null))
+    localStorage.removeItem("user")
+    localStorage.removeItem("token")
+    navigate("/")
+  }
+  catch(err){
+    toast.error("Error in Deleting Profile")
+  }
+  finally{
+    toast.dismiss(toastId)
+  }
+ }
 }
