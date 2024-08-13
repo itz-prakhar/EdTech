@@ -3,6 +3,8 @@ import { useForm } from "react-hook-form";
 import CountryCode from "../../Data/countrycode.json";
 import {contactUsForm} from "../../services/APIs/"
 import fetchData from "../../services/apiConnector"
+import toast from "react-hot-toast";
+import Spinner from "../Common/Spinner"
 
 const AboutForm = () => {
   const {
@@ -23,13 +25,20 @@ const AboutForm = () => {
     }
   }, [reset, isSubmitSuccessful]);
   const submitFrom = async (data) => {
-    console.log("Form Data", data);
+    // console.log("Form Data", data);
+    let toastId;
     try{
+      toastId = toast.loading("Sending mail")
       const response = await fetchData("POST",contactUsForm.SendMail_API,data)
-      console.log("response",response)
+      // console.log("response",response)
+      toast.success("Mail send successfully")
     }
     catch(err){
+      toast.error("Error in sending Mail ")
       console.log("error in sending message email")
+    }
+    finally{
+      toast.dismiss(toastId)
     }
   };
   return (
