@@ -8,12 +8,15 @@ import { configureStore } from "@reduxjs/toolkit";
 
 import authProvider from "./Redux/Slice/authSlice.jsx"
 import userReducer from "./Redux/Slice/userSlice.jsx"
+import courseReducer from "./Redux/Slice/courseSlice.jsx"
 import { Toaster } from "react-hot-toast";
 
 export const store = configureStore({
     reducer:{
         auth:authProvider,
         user:userReducer,
+        course:courseReducer,
+
     }
 })
 
