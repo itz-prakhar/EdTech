@@ -8,13 +8,13 @@ const RevieBox = () => {
       <div className="flex gap-2 items-center">
         <img src={"k"}></img>
         <div>
-          <p className="text-richblack-25 font-bold">Rishi Keshari</p>
-          <p className="text-richblack-400">rishiKeshari@gmail.com</p>
+          <p className="text-richblack-25 font-bold">Ayush</p>
+          <p className="text-richblack-400">ayushcheck12@gmail.com</p>
         </div>
       </div>
 
       <p className="text-richblack-100 font-semibold">
-        It is very affordable course must buy it
+        It is very affordable and good course must buy it..
       </p>
       <div className="flex my-3">
       <p className="text-yellow-100 mr-2">3.0</p>

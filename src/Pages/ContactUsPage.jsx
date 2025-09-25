@@ -19,7 +19,7 @@ const ContactUsPage = () => {
               Chat on us
             </p>
             <p>Our friendly team is here to help.</p>
-            <p>officialrishiteam@gmail.com</p>
+            <p>officialprakharteam@gmail.com</p>
           </div>
         </div>
         <div className="flex gap-3">

@@ -30,7 +30,7 @@ const TappingCard = ({selected}) => {
                     <div className='flex items-center justify-center gap-2 '>
                         <ImTree/>
                         <p className='font-semibold pt-[0.1rem]'>{item.lessionNumber}</p>
-                        <p>Lession</p>
+                        <p>Lesson</p>
                     </div>
                     
                 </div>
